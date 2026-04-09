@@ -5,6 +5,7 @@ export const LoadingWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 450px;
   p {
     color: #e2e8f0;
   }

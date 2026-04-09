@@ -128,6 +128,10 @@ const ProfilePage = () => {
   };
 
   const handleClickEmail = () => {
+     if (!newEmail) {
+      toast.warn("Yangi emailni kiriting!");
+      return;
+    }
     if (!userId || !email) return;
     changeEmail(
       { id: userId, email: email },
@@ -152,6 +156,8 @@ const ProfilePage = () => {
             toast.success("Email muvaffaqiyatli o'zgartirildi");
             setCodeInput(false);
             setEmailDisabled(true);
+            setUsersCode("");
+            setNewEmail("");
             refetch();
           },
           onError: (e: any) => {
@@ -301,10 +307,27 @@ const ProfilePage = () => {
           <FiEdit /> Emailni o'zgartirish
         </Button>
       ) : (
-        <Button onClick={handleClickEmail}>
-          <BiCheckCircle />
-          {isPendingChangeEmail ? "Yuborilmoqda..." : "Kod yuborish"}
-        </Button>
+        <div
+            style={{
+              marginLeft: "auto",
+              width: "400px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Button onClick={handleClickEmail}>
+              <BiCheckCircle />
+              {isPendingChangeEmail ? "Yuborilmoqda..." : "Kod yuborish"}
+            </Button>
+            <Button
+              onClick={() => {
+                setEmailDisabled(true);
+              }}
+            >
+              <MdCancel />
+              Bekor qilish
+            </Button>
+          </div>
       )}
     </ProfileWrapper>
   );
