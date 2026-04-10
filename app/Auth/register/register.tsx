@@ -19,6 +19,7 @@ import {
 } from "./register.style";
 import { useRegister } from "@/hooks/useAuth";
 import { useUploadImage } from "@/hooks/useImages";
+import Logo from "../../../components/Logo/logo";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -97,6 +98,7 @@ export default function RegisterPage() {
   return (
     <PageWrapper>
       <Card>
+        <Logo/>
         <Title>Ro'yhatdan o'tish</Title>
 
         <Form onSubmit={handleRegister}>

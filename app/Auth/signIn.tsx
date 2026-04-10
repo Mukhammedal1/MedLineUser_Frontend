@@ -11,6 +11,7 @@ import {
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useSignIn } from "@/hooks/useAuth";
+import Logo from "../../components/Logo/logo";
 
 const SignInPage = () => {
   const router = useRouter();
@@ -47,6 +48,7 @@ const playSound = () => {
   return (
     <PageWrapper>
       <Card>
+        <Logo/>
         <Title>Kirish</Title>
 
         <Form onSubmit={(e) => handleSignIn(e)}>
